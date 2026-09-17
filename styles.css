@@ -46,29 +46,9 @@ header {
 }
 
 .logo-icon {
-    width: 56px;
-    height: 56px;
-    border: 3px dashed var(--brand-gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    animation: rotateWheel 30s linear infinite;
-}
-
-.logo-icon::before {
-    content: '';
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    background-color: var(--brand-gold);
-    border-radius: 50%;
-}
-
-@keyframes rotateWheel {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
 }
 
 .logo-text h1 {
