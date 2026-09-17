@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stagecoach Bank | Live Balance Sheet Dashboard</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo-area">
+            <div class="logo-icon"></div>
+            <div class="logo-text">
+                <h1>Stagecoach Bank</h1>
+                <p>Digital Core Systems</p>
+            </div>
+        </div>
+        <div class="badge">
+            <span class="badge-dot"></span> Real-Time Ledger Active
+        </div>
+    </header>
+
+    <div class="metrics-grid">
+        <div class="metric-card assets">
+            <div class="metric-label">Total Assets</div>
+            <div class="metric-value" id="tot-assets-card">$0</div>
+        </div>
+        <div class="metric-card liabilities">
+            <div class="metric-label">Total Liabilities</div>
+            <div class="metric-value" id="tot-liabilities-card">$0</div>
+        </div>
+        <div class="metric-card equity">
+            <div class="metric-label">Tier 1 Capital (Equity)</div>
+            <div class="metric-value" id="tot-equity-card">$0</div>
+        </div>
+        <div class="metric-card ratio">
+            <div class="metric-label">CET1 Capital Ratio</div>
+            <div class="metric-value" id="cet1-ratio-card">0.0%</div>
+        </div>
+    </div>
+
+    <div class="ledger-grid">
+        <div class="ledger-section assets">
+            <div class="section-title">
+                <span>Asset Breakdown</span>
+                <span id="asset-title-total">$0M</span>
+            </div>
+            <div class="row-item">
+                <div class="row-info"><span class="row-label">Liquid Cash & Reserves (Risk Weight: 0%)</span><span class="row-val" id="lbl-cash">$0</span></div>
+                <div class="graphic-track"><div class="graphic-fill" id="bar-cash"></div></div>
+                <input type="range" id="input-cash" min="10" max="60" value="25">
+            </div>
+            <div class="row-item">
+                <div class="row-info"><span class="row-label">Government Securities (Risk Weight: 20%)</span><span class="row-val" id="lbl-securities">$0</span></div>
+                <div class="graphic-track"><div class="graphic-fill" id="bar-securities"></div></div>
+                <input type="range" id="input-securities" min="15" max="80" value="40">
+            </div>
+            <div class="row-item">
+                <div class="row-info"><span class="row-label">Illiquid Loan Portfolio (Risk Weight: 100%)</span><span class="row-val" id="lbl-loans">$0</span></div>
+                <div class="graphic-track"><div class="graphic-fill" id="bar-loans"></div></div>
+                <input type="range" id="input-loans" min="30" max="110" value="65">
+            </div>
+        </div>
+
+        <div class="ledger-section liabilities">
+            <div class="section-title">
+                <span>Liabilities & Equity Structure</span>
+                <span id="liab-title-total">$0M</span>
+            </div>
+            <div class="row-item">
+                <div class="row-info"><span class="row-label">Core Retail Customer Deposits</span><span class="row-val" id="lbl-deposits">$0</span></div>
+                <div class="graphic-track"><div class="graphic-fill" id="bar-deposits"></div></div>
+                <input type="range" id="input-deposits" min="50" max="130" value="85">
+            </div>
+            <div class="row-item">
+                <div class="row-info"><span class="row-label">Short-Term Institutional Debt</span><span class="row-val" id="lbl-borrowing">$0</span></div>
+                <div class="graphic-track"><div class="graphic-fill" id="bar-borrowing"></div></div>
+                <input type="range" id="input-borrowing" min="5" max="50" value="20">
+            </div>
+            <div class="row-item" style="margin-top: 2.2rem; padding-top: 1.2rem; border-top: 1px dashed var(--border);">
+                <div class="row-info"><span class="row-label" style="font-weight: 600; color: var(--accent-green);">Balancing Shareholder Capital</span><span class="row-val" id="lbl-equity" style="color: var(--accent-green); font-size:1.15rem;">$0</span></div>
+                <div class="graphic-track" style="background-color: rgba(16, 185, 129, 0.05);"><div class="graphic-fill" id="bar-equity" style="background-color: var(--accent-green);"></div></div>
+                <p style="font-size: 0.8rem; color: #52627a; line-height: 1.5; margin-top: 0.5rem;">*Leveraging real-time structural auto-balancing variables to maintain standard accounting parity.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="insight-section">
+        <div class="insight-title"><span>⚡ Real-Time Insight Stream & Risk Audit Logs</span></div>
+        <div class="insight-stream" id="stream-box"></div>
+    </div>
+</div>
+
+<script src="live.js"></script>
+</body>
+</html>
